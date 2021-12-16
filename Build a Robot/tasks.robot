@@ -96,6 +96,7 @@ Take a screenshot of the robot
     [Return]     ${robot}
     
     
+# The screenshop is stored on the secondo page of the PDF
 Embed the robot screenshot to the receipt PDF file
     [Arguments]    ${screenshot}    ${pdf2}
     Open Pdf    ${pdf2}
