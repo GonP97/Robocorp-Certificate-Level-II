@@ -81,7 +81,6 @@ Preview the robot
 Submit the order
     Wait Until Keyword Succeeds    10x    0.1 sec    Submit
     
-    
 Submit
     Wait Until Element Is Enabled    ${btn_submit}
     Click Button    ${btn_submit}
@@ -99,7 +98,7 @@ Store the receipt as a PDF file
 Take a screenshot of the robot
     [Arguments]     ${order_n}
     
-    ${robot}=  Capture Element Screenshot   ${img_robot}    ${CURDIR}${/}output${/}prints${/}${order_n}.jpeg
+    ${robot}=  Capture Element Screenshot   ${img_robot}    ${CURDIR}${/}output${/}prints${/}${order_n}.png
     
     [Return]     ${robot}
     
