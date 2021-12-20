@@ -43,8 +43,8 @@ Get Secret file
 
 Open the robot order website
     ${url}=  Get Secret file
-    # open browser     ${url}     ${browser}
     Open Available Browser  ${url}
+
 Close the annoying modal
     Click Button  //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
     
