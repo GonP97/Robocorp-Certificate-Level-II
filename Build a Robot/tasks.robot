@@ -83,6 +83,7 @@ Submit the order
     
     
 Submit
+    Wait Until Element Is Enabled    ${btn_submit}
     Click Button    ${btn_submit}
     Page Should Contain Element    id=receipt
     
