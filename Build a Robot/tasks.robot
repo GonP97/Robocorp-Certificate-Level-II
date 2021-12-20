@@ -79,7 +79,7 @@ Preview the robot
     Click Button    ${btn_preview}
     
 Submit the order
-    Wait Until Keyword Succeeds    5x    0.1 sec    Submit
+    Wait Until Keyword Succeeds    10x    0.1 sec    Submit
     
     
 Submit
