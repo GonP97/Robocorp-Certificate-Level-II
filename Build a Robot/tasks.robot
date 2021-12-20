@@ -27,10 +27,11 @@ ${head}             id=head
 ${body}             body
 ${legs}             xpath=/html/body/div/div/div[1]/div/div[1]/form/div[3]/input
 ${address}          id=address
-${btn_preview}      id=preview  
-${btn_submit}       id=order
-${btn_new_ordr}     id=order-another
+${btn_preview}      xpath=/html/body/div/div/div[1]/div/div[1]/form/button[1]  
+${btn_submit}       xpath=/html/body/div/div/div[1]/div/div[1]/form/button[2]
+${btn_new_ordr}     xpath=/html/body/div/div/div[1]/div/div[1]/div/button
 ${img_robot}        xpath=/html/body/div/div/div[1]/div/div[2]/div/div
+
 
 # +
 *** Keywords ***
@@ -44,6 +45,7 @@ Get Secret file
 Open the robot order website
     ${url}=  Get Secret file
     Open Available Browser  ${url}
+    Maximize Browser Window
 
 Close the annoying modal
     Click Button  //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
@@ -73,6 +75,7 @@ Fill the form
     
     
 Preview the robot
+    Wait Until Element Is Enabled  ${btn_preview}   3 seconds
     Click Button    ${btn_preview}
     
 Submit the order
