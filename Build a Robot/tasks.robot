@@ -97,7 +97,7 @@ Store the receipt as a PDF file
     
 Take a screenshot of the robot
     [Arguments]     ${order_n}
-    
+    Wait Until Element Is Visible  ${img_robot}
     ${robot}=  Capture Element Screenshot   ${img_robot}    ${CURDIR}${/}output${/}prints${/}${order_n}.png
     
     [Return]     ${robot}
