@@ -1,3 +1,4 @@
+# +
 *** Settings ***
 Documentation      Orders robots from RobotSpareBin Industries Inc.
 ...               Saves the order HTML receipt as a PDF file.
@@ -12,6 +13,9 @@ Library           RPA.Archive
 Library           OperatingSystem
 Library           RPA.Dialogs
 Library           RPA.Robocorp.Vault
+
+
+
 
 # +
 *** Variables ***
@@ -39,8 +43,8 @@ Get Secret file
 
 Open the robot order website
     ${url}=  Get Secret file
-    open browser    ${url}     ${browser}
-
+    # open browser     ${url}     ${browser}
+    Open Available Browser  ${url}
 Close the annoying modal
     Click Button  //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
     
@@ -96,7 +100,6 @@ Take a screenshot of the robot
     [Return]     ${robot}
     
     
-# The screenshop is stored on the secondo page of the PDF
 Embed the robot screenshot to the receipt PDF file
     [Arguments]    ${screenshot}    ${pdf2}
     Open Pdf    ${pdf2}
@@ -122,6 +125,7 @@ Create a ZIP file of the receipts
 
 
 Order robots from RobotSpareBin Industries Inc
+    Set Selenium Implicit Wait    2 seconds
     Open the robot order website
      ${orders}=    Get orders
      FOR    ${row}    IN    @{orders}
